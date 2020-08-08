@@ -1,4 +1,5 @@
 import React from "react";
+import "./sass-master/index.scss";
 
 function App() {
   return (
