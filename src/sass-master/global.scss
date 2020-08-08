@@ -13,7 +13,7 @@ body {
 main {
   width: 85vw;
   min-height: 80vh;
-  max-width: 1024px;
+  max-width: 1080px;
   margin: 35px auto;
   background: #fff;
   padding: 15px;
@@ -38,6 +38,7 @@ main {
   display: block;
   border-radius: 100%;
   margin: 0 auto;
+  margin-top: 50px;
 }
 
 header h1 {
@@ -49,3 +50,52 @@ h1 {
 }
 
 /* ------------------ */
+
+.topNav {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+
+  button {
+    margin-left: 5px;
+    background-color: rgb(44, 110, 37);
+    color: #fff;
+    padding: 8px;
+    border-radius: 12px;
+    outline: none;
+
+    &:hover {
+      background-color: rgb(35, 247, 11);
+      color: #000;
+    }
+
+    &:active {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 18px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+
+  p {
+    font-size: 1.7rem;
+    margin-top: 6px;
+  }
+}

@@ -1,21 +1,14 @@
 import React from "react";
-import styled from "styled-components";
-import { Card } from "semantic-ui-react";
 
-const StyledCard = styled(Card)`
-  font-size: 1.5rem;
-  width: 30%;
-`;
 export default function CharacterCard(props) {
-  console.log(props);
   return (
-    <StyledCard>
+    <div className="card">
       <img src={props.image} />
-      {props.name}
+      <h3>{props.name}</h3>
       <p style={{ color: "silver" }}>{props.status}</p>
-      Location: {props.location.name}
+      <p>Location: {props.location.name}</p>
       <br />
-      Origin: {props.origin.name}
-    </StyledCard>
+      <p>Origin: {props.origin.name}</p>
+    </div>
   );
 }
