@@ -12,10 +12,10 @@ const StyledCard = styled(Card)`
 export default function EpisodeCard(props) {
   console.log(props);
   return (
-    <StyledCard>
+    <div className="epiCard">
       <h2>{props.name}</h2>
       <p>Episode: {props.episode}</p>
       <span>Air Date: {props.date}</span>
-    </StyledCard>
+    </div>
   );
 }
