@@ -1,6 +1,4 @@
 import React from "react";
-import { Card, Button } from "semantic-ui-react";
-import styled from "styled-components";
 
 export default function LocationCard({ name, dimension, residents }) {
   return (
