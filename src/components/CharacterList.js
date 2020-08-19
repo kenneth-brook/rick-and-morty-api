@@ -9,16 +9,43 @@ export default function CharacterList() {
   const [page, setPage] = useState(
     "https://rickandmortyapi.com/api/character/"
   );
+  const [noPrev, setNoPrev] = useState();
+  let noNext = info.next;
+
+  function arrowRender(noPrev, noNext) {
+    if (noPrev === null) {
+      document.getElementsByClassName("arrowLeft")[0].style = {
+        color: "white",
+      };
+    } else {
+      document.getElementsByClassName("arrowLeft")[0].style = {
+        color: "black",
+      };
+    }
+
+    if (noNext === "null") {
+      document.getElementsByClassName("arrowRight")[0].style = {
+        display: "none",
+      };
+    } else {
+      document.getElementsByClassName("arrowRight")[0].style = {
+        display: "block",
+      };
+    }
+  }
 
   useEffect(() => {
     async function getData() {
       await axios.get(`${page}`).then((res) => {
         setCharacters(res.data.results);
         setInfo(res.data.info);
+        setNoPrev(res.data.info.prev);
+        console.log(res.data.info.prev);
       });
     }
     getData();
-  }, [page]);
+    arrowRender();
+  }, [page, noPrev]);
 
   return (
     <section className="character-list grid-view">
