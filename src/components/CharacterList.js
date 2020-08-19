@@ -6,26 +6,34 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
   const [info, setInfo] = useState({});
-  let pageAddress = "https://rickandmortyapi.com/api/character/";
+  const [page, setPage] = useState(
+    "https://rickandmortyapi.com/api/character/"
+  );
+
+  // function nextPage(e) {
+  //   pageAddress = `${info.next}`;
+  //   e.preventDefault();
+  //   console.log("I was clicked");
+  // }
 
   useEffect(() => {
-    axios.get(`${pageAddress}`).then((res) => {
+    axios.get(`${page}`).then((res) => {
       setCharacters(res.data.results);
       setInfo(res.data.info);
     });
-  }, [pageAddress]);
+  }, [page]);
 
   console.log(info.next);
   return (
     <section className="character-list grid-view">
       <div className="pageNav">
-        <button className="arrowLeft">
+        <button className="arrowLeft" onClick={() => setPage(info.prev)}>
           <h1>Previous</h1>
           <h1>
             <FaArrowLeft />
           </h1>
         </button>
-        <button className="arrowRight" onClick={(pageAddress = info.next)}>
+        <button className="arrowRight" onClick={() => setPage(info.next)}>
           <h1>Next</h1>
           <h1>
             <FaArrowRight />
@@ -47,3 +55,4 @@ export default function CharacterList() {
     </section>
   );
 }
+//onClick={(pageAddress = info.next)}
