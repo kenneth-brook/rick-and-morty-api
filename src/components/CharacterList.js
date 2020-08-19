@@ -10,20 +10,16 @@ export default function CharacterList() {
     "https://rickandmortyapi.com/api/character/"
   );
 
-  // function nextPage(e) {
-  //   pageAddress = `${info.next}`;
-  //   e.preventDefault();
-  //   console.log("I was clicked");
-  // }
-
   useEffect(() => {
-    axios.get(`${page}`).then((res) => {
-      setCharacters(res.data.results);
-      setInfo(res.data.info);
-    });
+    async function getData() {
+      await axios.get(`${page}`).then((res) => {
+        setCharacters(res.data.results);
+        setInfo(res.data.info);
+      });
+    }
+    getData();
   }, [page]);
 
-  console.log(info.next);
   return (
     <section className="character-list grid-view">
       <div className="pageNav">
@@ -43,7 +39,7 @@ export default function CharacterList() {
       {characters.map((char) => {
         return (
           <CharacterCard
-            key={char.name}
+            key={char.id}
             name={char.name}
             image={char.image}
             location={char.location}
@@ -55,4 +51,3 @@ export default function CharacterList() {
     </section>
   );
 }
-//onClick={(pageAddress = info.next)}
