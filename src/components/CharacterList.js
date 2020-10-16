@@ -40,7 +40,6 @@ export default function CharacterList() {
         setCharacters(res.data.results);
         setInfo(res.data.info);
         setNoPrev(res.data.info.prev);
-        console.log(res.data.info.prev);
       });
     }
     getData();
